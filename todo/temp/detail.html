@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+<br>
+<div class="container">
+    <div class="row">
+<div class="col-md-6">
+            <h4 style="text-align:center; color:red">My Task</h4>
+            <table class="table table-striped table-dark">
+
+  <thead>
+
+    <tr>
+        <th scope="col" >No.</th>
+      <th scope="col" >Task</th>
+      <th scope="col">Priority</th>
+        <th scope="col">Date</th>
+        <th scope="col" align="center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <tr><td> </td>
+      <td>{{i.task}}</td>
+
+    <td>{{i.priority}}</td>
+        <td>{{i.date}}</td>
+      <td>
+          <a class="btn btn-outline-danger" href="{% url 'delete' i.id %}" >del</a>
+          <a class="btn btn-outline-warning" href="{% url 'update' i.id %}" >update</a>
+      </td></tr>
+
+    </tr>
+
+  </tbody>
+</table>
+        </div>
+</div>
+</div>
+
+{% endblock %}

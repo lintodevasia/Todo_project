@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <form method="POST" class="mb-3 shadow">
+        {% csrf_token %}
+
+            <div class="form-group">
+            <input type="text" class="form-control" name="task" placeholder="Add new....">
+            </div>
+            <div class="form-group">
+            <input type="text" class="form-control" name="priority" placeholder="priority">
+            </div>
+             <div class="form-group">
+            <input type="date" class="form-control" name="date" placeholder="Date">
+            </div>
+            <button type="submit" class="btn btn-outline-success float-none" >Add</button>
+
+        </form>
+</div>
+        <div class="col-md-6">
+            <h4 style="text-align:center; color:red">My Task</h4>
+            <table class="table table-striped table-dark">
+
+  <thead>
+
+    <tr>
+        <th scope="col" >No.</th>
+      <th scope="col" >Task</th>
+      <th scope="col">Priority</th>
+        <th scope="col">Date</th>
+        <th scope="col" align="center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in task %}
+  <tr><td> </td>
+      <td>{{i.task}}</td>
+
+    <td>{{i.priority}}</td>
+        <td>{{i.date}}</td>
+      <td>
+          <a class="btn btn-outline-danger" href="{% url 'delete' i.id %}" >del</a>
+          <a class="btn btn-outline-warning" href="{% url 'update' i.id %}" >update</a>
+      </td></tr>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+        </div>
+</div>
+</div>
+
+{% endblock %}

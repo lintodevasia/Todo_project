@@ -1,0 +1,4 @@
+ td { text-align: center; }
+ th { text-align: left; }
+ table tr { counter-increment: row-num; }
+ table tr td:first-child::before { content: counter(row-num) ". "; }

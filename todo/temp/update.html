@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 style="text-align:center; color:red">Update your Task</h4>
+            <form method="POST" class="mb-4 shadow">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{form.as_p}}
+                </div>
+                <button type="submit" class="btn btn-outline-success float-none" >Update</button>
+            </form>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}
